@@ -1,16 +1,18 @@
 package com.codeacademy.showcase.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
+@Builder
 @Getter
 @Setter
 @ToString
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "USERS")
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -32,4 +34,5 @@ public class User {
 
     @Column(name = "DAIRY_ALLERGIES")
     private Boolean dairyAllergies;
+
 }

@@ -1,21 +1,18 @@
 package com.codeacademy.showcase.exception;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class ErrorResponse {
 
     private String errorCode;
     private String errorMessage;
-
-    public ErrorResponse(String errorMessage)
-    {
-        super();
-        this.errorMessage = errorMessage;
-    }
+    private String timeStamp;
 
 }

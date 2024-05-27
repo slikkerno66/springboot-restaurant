@@ -1,34 +1,36 @@
 package com.codeacademy.showcase.controller;
 
+import com.codeacademy.showcase.dto.CreateUserRequestDTO;
 import com.codeacademy.showcase.entity.User;
-import com.codeacademy.showcase.repository.UserRepository;
+import com.codeacademy.showcase.exception.RestaurantCustomException;
+import com.codeacademy.showcase.service.UserService;
 import io.micrometer.common.util.StringUtils;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.validation.Validator;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
+
 
 @RestController
 @RequestMapping("/user")
 public class UserController {
 
-    public UserRepository userRepository;
-
-    public UserController(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+    @Autowired
+    private UserService userService;
 
     @PostMapping("/create")
-    public User registerUser(@RequestBody User user) {
-        if (StringUtils.isNotEmpty(user.getName())) {
-            User existingUser = this.userRepository.findByName(user.getName());
-            if(existingUser == null) {
-                return this.userRepository.save(user);
-            } else {
-                throw new
-            }
-        }
-        return null;
+    public User registerUser(@Valid @RequestBody CreateUserRequestDTO requestDTO) {
+
+        return userService.createUser(requestDTO);
     }
+
+//    @ExceptionHandler(MethodArgumentNotValidException.class)
+//    public Map<String, String> handleValidationException(MethodArgumentNotValidException ex) {
+//        return null;
+//    }
 
 }
