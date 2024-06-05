@@ -18,6 +18,7 @@ public class MessageSourceConfig {
                 "classpath:bean-error.message");
         messageSource.setDefaultEncoding("UTF-8");
 
+        //use this in case you need only one messageSource
 //        messageSource.setBasename("classpath:error.message");
         return messageSource;
     }

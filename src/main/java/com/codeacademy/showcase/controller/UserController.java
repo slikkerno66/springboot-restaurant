@@ -1,18 +1,14 @@
 package com.codeacademy.showcase.controller;
 
 import com.codeacademy.showcase.dto.CreateUserRequestDTO;
-import com.codeacademy.showcase.entity.User;
-import com.codeacademy.showcase.exception.RestaurantCustomException;
+import com.codeacademy.showcase.dto.UpdateUserRequestDTO;
+import com.codeacademy.showcase.dto.UserReviewRequestDTO;
+import com.codeacademy.showcase.dto.UserReviewResponseDTO;
+import com.codeacademy.showcase.entity.Users;
 import com.codeacademy.showcase.service.UserService;
-import io.micrometer.common.util.StringUtils;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.validation.Validator;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Map;
 
 
 @RestController
@@ -22,15 +18,24 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/create")
-    public User registerUser(@Valid @RequestBody CreateUserRequestDTO requestDTO) {
+    @GetMapping
+    public Users getCurrentUserInfo() {
+        return userService.getCurrentUserInfo();
+    }
 
+    @PostMapping("/create")
+    public Users postNewUser(@Valid @RequestBody CreateUserRequestDTO requestDTO) {
         return userService.createUser(requestDTO);
     }
 
-//    @ExceptionHandler(MethodArgumentNotValidException.class)
-//    public Map<String, String> handleValidationException(MethodArgumentNotValidException ex) {
-//        return null;
-//    }
+    @PostMapping("/review")
+    public UserReviewResponseDTO postReview(@Valid @RequestBody UserReviewRequestDTO requestDTO) {
+        return userService.postReview(requestDTO);
+    }
+
+    @PutMapping("/update")
+    public Users putUpdateUser(@Valid @RequestBody UpdateUserRequestDTO requestDTO) {
+        return userService.updateUser(requestDTO);
+    }
 
 }

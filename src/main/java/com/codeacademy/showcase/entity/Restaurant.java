@@ -2,14 +2,17 @@ package com.codeacademy.showcase.entity;
 
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
+import java.math.BigDecimal;
+
+@Builder
 @Getter
 @Setter
 @ToString
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "RESTAURANTS")
 public class Restaurant {
 
@@ -24,15 +27,15 @@ public class Restaurant {
     private String zipCode;
 
     @Column(name = "PEANUT_SCORE")
-    private Double peanutScore;
+    private BigDecimal peanutScore;
 
     @Column(name = "EGG_SCORE")
-    private Double eggScore;
+    private BigDecimal eggScore;
 
     @Column(name = "DAIRY_SCORE")
-    private Double dairyScore;
+    private BigDecimal dairyScore;
 
     @Column(name = "OVERALL_SCORE")
-    private Double overallScore;
+    private BigDecimal overallScore;
 
 }

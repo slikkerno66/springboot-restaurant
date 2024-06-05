@@ -2,16 +2,21 @@ package com.codeacademy.showcase.entity;
 
 import com.codeacademy.showcase.utilenum.ReviewStatus;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
+import java.math.BigDecimal;
+
+@Builder
 @Getter
 @Setter
 @ToString
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "DINING_REVIEWS")
 public class DiningReview {
+
+    public static final int NUMBER_OF_SCORE_TYPE = 3;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,20 +25,26 @@ public class DiningReview {
     @Column(name = "RESTAURANT_ID")
     private Long restaurantId;
 
-    @Column(name = "NAME_OF_USER")
-    private String nameOfUser;
+    @Column(name = "USER_ID")
+    private Long userId;
 
     @Column(name = "PEANUT_SCORE")
-    private Double peanutScore;
+    private BigDecimal peanutScore;
 
     @Column(name = "EGG_SCORE")
-    private Double eggScore;
+    private BigDecimal eggScore;
 
     @Column(name = "DAIRY_SCORE")
-    private Double dairyScore;
+    private BigDecimal dairyScore;
 
     @Column(name = "COMMENTARY")
     private String commentary;
+
+    @Column(name = "USER_REVIEW_TIME")
+    private String userReviewTime;
+
+    @Column(name = "ADMIN_REVIEW_TIME")
+    private String adminReviewTime;
 
     @Column(name = "ADMIN_REVIEW")
     @Enumerated(value = EnumType.STRING)

@@ -1,5 +1,8 @@
 package com.codeacademy.showcase.utilenum;
 
+import lombok.ToString;
+
+@ToString
 public enum ReviewStatus {
-    REJECTED, PENDING, APPROVED
+    DELETED, REJECTED, PENDING, APPROVED
 }
