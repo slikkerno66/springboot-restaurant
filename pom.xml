@@ -39,6 +39,7 @@
 		</dependency>
 
 		<!-- Swagger -->
+		<!-- access this url to see swagger doc http://localhost:8080/swagger-ui/index.html#/ -->
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>

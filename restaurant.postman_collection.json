@@ -1,0 +1,473 @@
+{
+	"info": {
+		"_postman_id": "cef38bfd-aa18-4c17-89a7-8c0b943e081a",
+		"name": "restaurant",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10969370"
+	},
+	"item": [
+		{
+			"name": "login",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "username",
+						"value": "user@example.com",
+						"disabled": true
+					},
+					{
+						"key": "password",
+						"value": "password",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "localhost:8080/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "username",
+						"value": "user@example.com",
+						"disabled": true
+					},
+					{
+						"key": "password",
+						"value": "password",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/logout",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[user] create user",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"newuser3\",\r\n    \"password\": \"1111\",\r\n    \"name\": \"Edwin\",\r\n    \"state\": \"6\",\r\n    \"zipCode\": \"7777\",\r\n    \"role\": null,\r\n    \"peanutAllergies\": false,\r\n    \"eggAllergies\": false,\r\n    \"dairyAllergies\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/user/create",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[user] update user",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"username\": \"bababoo\",\r\n    \"password\": \"yyyy\",\r\n    \"name\": \"Tanitsak\",\r\n    \"state\": \"NSW\",\r\n    \"zipCode\": \"9999\",\r\n    \"peanutAllergies\": false,\r\n    \"eggAllergies\": false,\r\n    \"dairyAllergies\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/user/update",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[user] post review",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"restaurantName\": \"KFC\",\r\n    \"peanutScore\": 3,\r\n    \"eggScore\": 4,\r\n    \"dairyScore\": 5,\r\n    \"overallScore\": 6,\r\n    \"commentary\": \"ZZZZ\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/user/review",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"review"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[operator] get user info",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "newuser1",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "role",
+							"value": "ROLE_ADMIN",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": "Malwar",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "state",
+							"value": "5",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "zipCode",
+							"value": "6666",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "peanutAllergies",
+							"value": "false",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "eggAllergies",
+							"value": "true",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "dairyAllergies",
+							"value": "false",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/operator/users",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"operator",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[operator] get review",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "restaurantName",
+							"value": "MC DONALD",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "nameOfUser",
+							"value": "Edwin",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "reviewStatus",
+							"value": "DELETED",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "restaurantZipCode",
+							"value": "1010",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "userId",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "userState",
+							"value": "2",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "userZipCode",
+							"value": "3333",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/operator/review",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"operator",
+						"review"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[admin] update review status",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"restaurantId\": \"2\",\r\n    \"userId\": \"4\",\r\n    \"reviewAccept\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/admin/review",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"review"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[admin] create new restaurant",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"restaurantName\": \"DragonGROMforceGROM\",\r\n    \"zipCode\": \"2222\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/admin/restaurant",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"restaurant"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[admin] delete restaurant",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"restaurantName\": \"NOM MA\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/admin/restaurant",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"restaurant"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[admin] delete user",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/admin/user?id=3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"user"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
