@@ -1,9 +1,37 @@
-<mxfile host="app.diagrams.net" modified="2024-06-06T07:08:50.568Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36" version="24.4.14" etag="93iSLZo1FbWKF3ZsYJI1" type="github">
+<mxfile host="app.diagrams.net" modified="2024-06-06T07:16:20.317Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36" etag="k62JBAVdJJcHQ_pTO0uN" version="24.4.14" type="github">
   <diagram name="Page-1" id="rUhiST2eHKqpAj74b4az">
-    <mxGraphModel>
+    <mxGraphModel dx="819" dy="446" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="zQynfVUOFk9mBo4B44oZ-1" value="Client" style="points=[[0.35,0,0],[0.98,0.51,0],[1,0.71,0],[0.67,1,0],[0,0.795,0],[0,0.65,0]];verticalLabelPosition=bottom;sketch=0;html=1;verticalAlign=top;aspect=fixed;align=center;pointerEvents=1;shape=mxgraph.cisco19.user;fillColor=#005073;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="180" y="195" width="130" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="zQynfVUOFk9mBo4B44oZ-2" value="Server" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#232F3D;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.servers;" vertex="1" parent="1">
+          <mxGeometry x="560" y="190" width="140" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="zQynfVUOFk9mBo4B44oZ-3" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="330" y="214" as="sourcePoint" />
+            <mxPoint x="550" y="214" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zQynfVUOFk9mBo4B44oZ-4" value="request payload with Basic Auth" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="zQynfVUOFk9mBo4B44oZ-3">
+          <mxGeometry x="-0.1829" y="-1" relative="1" as="geometry">
+            <mxPoint x="20" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zQynfVUOFk9mBo4B44oZ-5" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="550" y="280" as="sourcePoint" />
+            <mxPoint x="330" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zQynfVUOFk9mBo4B44oZ-6" value="response resource" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="zQynfVUOFk9mBo4B44oZ-5">
+          <mxGeometry x="-0.1829" y="-1" relative="1" as="geometry">
+            <mxPoint x="-20" as="offset" />
+          </mxGeometry>
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
