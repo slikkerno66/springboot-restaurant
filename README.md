@@ -69,8 +69,9 @@ These are tech stacks using in this project
 
 **Design**
 
+
+
 This project was design as a monolithic server.
 
-**Database Design**
-
-![Entity Design]([https://github.com/slikkerno66/springboot-restaurant/blob/main/restaurant-entity.drawio.png](https://github.com/slikkerno66/springboot-restaurant/blob/main/restaurant-entity.drawio.svg))
+**Entity Design**
+![Entity Design](https://github.com/slikkerno66/springboot-restaurant/blob/main/restaurant-entity.drawio.svg)
