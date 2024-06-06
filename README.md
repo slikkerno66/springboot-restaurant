@@ -1,4 +1,3 @@
-(Not Finish writing README.md)
 This is the spring boot showcase project base on the final project requirement of this codeacademy course I studied.
 https://www.codecademy.com/learn/paths/create-rest-apis-with-spring-and-java
 
@@ -11,7 +10,7 @@ This project is the project to rate the restaurant in the system. There are 4 ro
  1. ROLE_UNREGISTERED = This role will provide to the user who hasn't yet logged in.
  2. ROLE_REGISTERED = This role will provide whenever the user create the user to review the restaurant
  3. ROLE_OPERATOR = This role is the operator role and can only be created by ROLE_ADMIN
- 4. ROLE_ADMIN = This is has full authority in the system
+ 4. ROLE_ADMIN = This role has full authority to manage users and restaurants in the system
 
 **Api authority**
 ROLE_ADMIN can call to all apis in the system.
@@ -52,6 +51,9 @@ There is a postman collection in the project which you can access here
 
 > Please make sure you read complete documentation of the postman collection to Apis spec
 
+Alternatively, postman collection can be accessed here, too.
+https://documenter.getpostman.com/view/10969370/2sA3QzaoRw
+
 **Swagger documentation**
 The swagger document can be access using this link
 http://localhost:8080/swagger-ui/index.html
@@ -69,9 +71,9 @@ These are tech stacks using in this project
 
 **Design**
 
+![Entity Design](https://github.com/slikkerno66/springboot-restaurant/blob/main/restaurant-design.drawio.svg)
 
-
-This project was design as a monolithic server.
+This project was design as a simple monolithic server.
 
 **Entity Design**
 
