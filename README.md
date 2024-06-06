@@ -73,4 +73,4 @@ This project was design as a monolithic server.
 
 **Database Design**
 
-![Alt]([images/someimage.png](https://github.com/slikkerno66/springboot-restaurant/blob/main/restaurant-entity.drawio.png))
+![Entity Design](https://github.com/slikkerno66/springboot-restaurant/blob/main/restaurant-entity.drawio.png)
