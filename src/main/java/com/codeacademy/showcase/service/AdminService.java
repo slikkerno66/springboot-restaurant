@@ -86,21 +86,25 @@ public class AdminService {
         BigDecimal newDairyScore = new BigDecimal("0");
         BigDecimal newOverallScore = new BigDecimal("0");
 
-        for (DiningReview diningReview : diningReviews) {
-            newPeanutScore = newPeanutScore.add(diningReview.getPeanutScore());
-            newEggScore = newEggScore.add(diningReview.getEggScore());
-            newDairyScore = newDairyScore.add(diningReview.getDairyScore());
+        if (!diningReviews.isEmpty()) {
+            for (DiningReview diningReview : diningReviews) {
+                newPeanutScore = newPeanutScore.add(diningReview.getPeanutScore());
+                newEggScore = newEggScore.add(diningReview.getEggScore());
+                newDairyScore = newDairyScore.add(diningReview.getDairyScore());
+            }
+
+            newPeanutScore = newPeanutScore.divide(diningReviewsSize, RoundingMode.UNNECESSARY);
+            newEggScore = newEggScore.divide(diningReviewsSize, RoundingMode.UNNECESSARY);
+            newDairyScore = newDairyScore.divide(diningReviewsSize, RoundingMode.UNNECESSARY);
+
+            //Recalculate overall score
+            newOverallScore = newOverallScore.add(newPeanutScore);
+            newOverallScore = newOverallScore.add(newEggScore);
+            newOverallScore = newOverallScore.add(newDairyScore);
+            newOverallScore = newOverallScore.divide(new BigDecimal(DiningReview.NUMBER_OF_SCORE_TYPE), RoundingMode.UNNECESSARY);
+
         }
 
-        newPeanutScore = newPeanutScore.divide(diningReviewsSize, RoundingMode.UNNECESSARY);
-        newEggScore = newEggScore.divide(diningReviewsSize, RoundingMode.UNNECESSARY);
-        newDairyScore = newDairyScore.divide(diningReviewsSize, RoundingMode.UNNECESSARY);
-
-        //Recalculate overall score
-        newOverallScore = newOverallScore.add(newPeanutScore);
-        newOverallScore = newOverallScore.add(newEggScore);
-        newOverallScore = newOverallScore.add(newDairyScore);
-        newOverallScore = newOverallScore.divide(new BigDecimal(DiningReview.NUMBER_OF_SCORE_TYPE), RoundingMode.UNNECESSARY);
 
         currentRestaurant.setPeanutScore(newPeanutScore);
         currentRestaurant.setEggScore(newEggScore);

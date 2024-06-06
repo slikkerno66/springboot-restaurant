@@ -1,7 +1,8 @@
 {
 	"info": {
-		"_postman_id": "cef38bfd-aa18-4c17-89a7-8c0b943e081a",
+		"_postman_id": "dbff5e54-b015-44f9-a71d-b7677bf00bf2",
 		"name": "restaurant",
+		"description": "This postman collection is part of the project I worked on when I studied codeacademy course.\n\n[https://www.codecademy.com/learn/paths/create-rest-apis-with-spring-and-java](https://www.codecademy.com/learn/paths/create-rest-apis-with-spring-and-java)\n\nIt is the showcase project base on the final project requirement of this codeacademy course I studied which I adjusted the requirement to what I think it's make sense to make change.\n\nYou can find the project source code in the GitHub link below.\n\n[https://github.com/slikkerno66/springboot-restaurant/tree/main](https://github.com/slikkerno66/springboot-restaurant/tree/main)\n\nBasically this project is the restaurant and user review management\n\n**Api authority**  \nROLE_ADMIN can call to all apis in the system.  \nROLE_OPERATOR can call to /operator/** and /user/**  \nROLE_REGISTERED can only call to /user/**",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "10969370"
 	},
@@ -17,12 +18,12 @@
 					"basic": [
 						{
 							"key": "password",
-							"value": "1234",
+							"value": "1111",
 							"type": "string"
 						},
 						{
 							"key": "username",
-							"value": "admin",
+							"value": "newuser1",
 							"type": "string"
 						}
 					]
@@ -53,9 +54,296 @@
 					"path": [
 						"login"
 					]
-				}
+				},
+				"description": "This is simply just a login api using Basic Auth.\n\nThere are 2 sample users.\n\n| **username** | **password** | **role** |\n| --- | --- | --- |\n| admin | 1234 | ROLE_ADMIN |\n| operator | 1234 | ROLE_OPERATOR |\n\nFor ROLE_REGISTERED, you can use \\[user\\] create user api (/user/create) to create the new user with the username and password as you like."
 			},
-			"response": []
+			"response": [
+				{
+					"name": "admin login",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "username",
+								"value": "user@example.com",
+								"disabled": true
+							},
+							{
+								"key": "password",
+								"value": "password",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "localhost:8080/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "JSESSIONID=50BEE7194A1250F98F9C650558EEB687; Path=/; HttpOnly"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 06 Jun 2024 03:51:38 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"username\": \"admin\",\n    \"password\": \"$2a$12$dNv6zMoESTtouE1RSU6B1uebwxMH2ZfZnyTnWKs8TzgxOoJN4wbnm\",\n    \"role\": \"ROLE_ADMIN\",\n    \"name\": \"Admin John\",\n    \"state\": \"Victoria\",\n    \"zipCode\": \"1111\",\n    \"peanutAllergies\": false,\n    \"eggAllergies\": false,\n    \"dairyAllergies\": false\n}"
+				},
+				{
+					"name": "operator login",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "username",
+								"value": "user@example.com",
+								"disabled": true
+							},
+							{
+								"key": "password",
+								"value": "password",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "localhost:8080/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "JSESSIONID=3DEA23F660B289A5D9FD956A6D702484; Path=/; HttpOnly"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 06 Jun 2024 03:53:40 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 2,\n    \"username\": \"operator\",\n    \"password\": \"$2a$12$dNv6zMoESTtouE1RSU6B1uebwxMH2ZfZnyTnWKs8TzgxOoJN4wbnm\",\n    \"role\": \"ROLE_OPERATOR\",\n    \"name\": \"Operator Duke\",\n    \"state\": \"NSW\",\n    \"zipCode\": \"2222\",\n    \"peanutAllergies\": false,\n    \"eggAllergies\": false,\n    \"dairyAllergies\": false\n}"
+				},
+				{
+					"name": "user login",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "username",
+								"value": "user@example.com",
+								"disabled": true
+							},
+							{
+								"key": "password",
+								"value": "password",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "localhost:8080/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "JSESSIONID=7D643B7BB01135F928DB8E44BC49D102; Path=/; HttpOnly"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 06 Jun 2024 03:54:15 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 3,\n    \"username\": \"newuser1\",\n    \"password\": \"$2a$10$nT0O4hdTojAxSrvQqNR5yuksWrjbICGduNhn8eTurEpoB2DMSiuW2\",\n    \"role\": \"ROLE_REGISTERED\",\n    \"name\": \"Edwin\",\n    \"state\": \"6\",\n    \"zipCode\": \"7777\",\n    \"peanutAllergies\": false,\n    \"eggAllergies\": false,\n    \"dairyAllergies\": true\n}"
+				}
+			]
 		},
 		{
 			"name": "logout",
@@ -97,9 +385,90 @@
 					"path": [
 						"logout"
 					]
-				}
+				},
+				"description": "This is simply just an endpoint provided by spring to clear security context. You can use this endpoint to logout."
 			},
-			"response": []
+			"response": [
+				{
+					"name": "logout",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "username",
+								"value": "user@example.com",
+								"disabled": true
+							},
+							{
+								"key": "password",
+								"value": "password",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/logout",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 06 Jun 2024 03:54:34 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
 		},
 		{
 			"name": "[user] create user",
@@ -133,9 +502,102 @@
 						"user",
 						"create"
 					]
-				}
+				},
+				"description": "Use this endpoint to create new user.\n\n- Only admin can assign specific role to the new user\n    \n- If user logged in as ROLE_REGISTERED, user need to log out before creating the new user\n    \n\n| **fields** | **Type** | **required** | **info & rules** |\n| --- | --- | --- | --- |\n| username | String | Y | 1\\. cannot be more than 60 characters.  <br>2\\. username must be unique across the system |\n| password | String | Y | 1\\. cannot be more than 255 characters.  <br>2\\. will be encrypted with Bcrypt methodology |\n| name | String | Y | 1\\. cannot be more than 255 characters |\n| state | String | Y |  |\n| zipCode | String | Y | 1\\. allow only 4 digits long  <br>2\\. must be between 0001 - 9999 |\n| role | String | Y | 1\\. only user with ROLE_ADMIN can provide \"role\" field with the possible value of ROLE_REGISTERED, ROLE_OPERATOR, ROLE_ADMIN  <br>2. |\n| peanutAllergies | Boolean | N | 1\\. The default value will be false if you doesn't submit this field |\n| eggAllergies | Boolean | N | 1\\. The default value will be false if you doesn't submit this field |\n| dairyAllergies | Boolean | N | 1\\. The default value will be false if you doesn't submit this field |"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "[user] create user",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"newuser1\",\r\n    \"password\": \"1111\",\r\n    \"name\": \"Edwin\",\r\n    \"state\": \"6\",\r\n    \"zipCode\": \"7777\",\r\n    \"role\": null,\r\n    \"peanutAllergies\": false,\r\n    \"eggAllergies\": false,\r\n    \"dairyAllergies\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/user/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"create"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 06 Jun 2024 03:54:07 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 3,\n    \"username\": \"newuser1\",\n    \"password\": \"$2a$10$nT0O4hdTojAxSrvQqNR5yuksWrjbICGduNhn8eTurEpoB2DMSiuW2\",\n    \"role\": \"ROLE_REGISTERED\",\n    \"name\": \"Edwin\",\n    \"state\": \"6\",\n    \"zipCode\": \"7777\",\n    \"peanutAllergies\": false,\n    \"eggAllergies\": false,\n    \"dairyAllergies\": true\n}"
+				}
+			]
 		},
 		{
 			"name": "[user] update user",
@@ -169,9 +631,102 @@
 						"user",
 						"update"
 					]
-				}
+				},
+				"description": "Use this api to update user. All fields in this api are optional. It update only submitted field.\n\n- users with ROLE_REGISTERED can only update their information (can't update other)\n    \n- only ROLE_OPERATOR and ROLE_ADMIN can update other users' information\n    \n- ROLE_OPERATOR cannot update ROLE_ADMIN\n    \n- ROLE_ADMIN can update all users' information\n    \n- only ROLE_ADMIN can change username of specify user by sending id and username. If ROLE_ADMIN submitted only username in the request, it will use that username to find the user and username will not be updated. (send both id and username to update username)\n    \n\n| **fields** | **type** | **required** | **info & rules** |\n| --- | --- | --- | --- |\n| id | Long | N | 1\\. Only ROLE_OPERATOR and ROLE_ADMIN can send this field |\n| username | String | N | 1\\. Cannot update new username which is the same as exsiting one. |\n| password | String | N | 1\\. Cannot be more than 255 characters |\n| name | String | N | 1\\. Cannot be more than 255 characters |\n| state | String | N | 1\\. Cannot be more than 255 characters |\n| role | String | N | 1\\. Possible values are ROLE_REGISTERED, ROLE_OPERATOR, ROLE_ADMIN  <br>2\\. only ROLE_ADMIN allow to submit this field |\n| zipCode | String | N | 1\\. allow only 4 digits long  <br>2\\. must be between 0001 - 9999 |\n| peanutAllergies | Boolean | N | 1\\. The default value will be false if you doesn't submit this field |\n| eggAllergies | Boolean | N | 1\\. The default value will be false if you doesn't submit this field |\n| dairyAllergies | Boolean | N | 1\\. The default value will be false if you doesn't submit this field |"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "[user] update user",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"username\": \"bababoo\",\r\n    \"password\": \"yyyy\",\r\n    \"name\": \"Tanitsak\",\r\n    \"state\": \"NSW\",\r\n    \"zipCode\": \"9999\",\r\n    \"peanutAllergies\": false,\r\n    \"eggAllergies\": false,\r\n    \"dairyAllergies\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/user/update",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"update"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 06 Jun 2024 03:57:42 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"username\": \"bababoo\",\n    \"password\": \"$2a$10$tGKpvV.cs9GlcmChmkzHwepj03Qs2sPLWsULXAyhFjSvbwZV2joMq\",\n    \"role\": \"ROLE_ADMIN\",\n    \"name\": \"Tanitsak\",\n    \"state\": \"NSW\",\n    \"zipCode\": \"9999\",\n    \"peanutAllergies\": false,\n    \"eggAllergies\": false,\n    \"dairyAllergies\": true\n}"
+				}
+			]
 		},
 		{
 			"name": "[user] post review",
@@ -197,9 +752,97 @@
 						"user",
 						"review"
 					]
-				}
+				},
+				"description": "Use this api to post new restaurant review.\n\n- only ROLE_REGISTERED can post restaurant review (ROLE_OPERATOR and ROLE_ADMIN cannot post restaurant review)\n    \n- user can only review restaurant one time per restaurant.\n    \n- All posted review will be created with \"PENDING\" status which will be reviewed later by ROLE_ADMIN.\n    \n- The restaurant score in RESTAURANTS table will not be affected until admin approved the review.\n    \n\n| **fields** | **type** | **required** | **info & rules** |\n| --- | --- | --- | --- |\n| restaurantName | String | Y | 1\\. Cannot be more than 255 characters |\n| peanutScore | BigDecial | Y | 1\\. Value can be between 0.0 to 10.0 |\n| eggScore | BigDecial | Y | 1\\. Score identify quality of egg  <br>2\\. Value can be between 0.0 to 10.0 |\n| dairyScore | BigDecial | Y | 1\\. Score identify quality of dairy product  <br>2\\. Value can be between 0.0 to 10.0 |\n| overallScore | BigDecial | Y | 1\\. Score identify overall restaurant quality  <br>2\\. Value can be between 0.0 to 10.0 |\n| commentary | String | N | 1\\. comment for the restaurant  <br>2\\. Cannot be more than 500 characters |"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "[user] post review",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"restaurantName\": \"KFC\",\r\n    \"peanutScore\": 3,\r\n    \"eggScore\": 4,\r\n    \"dairyScore\": 5,\r\n    \"overallScore\": 6,\r\n    \"commentary\": \"ZZZZ\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/user/review",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"review"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 06 Jun 2024 03:59:17 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"restaurantName\": \"KFC\",\n    \"submittedNameOfUser\": \"Edwin\",\n    \"zipCode\": \"1012\",\n    \"peanutScore\": 3,\n    \"eggScore\": 4,\n    \"dairyScore\": 5,\n    \"overallScore\": 6,\n    \"commentary\": \"ZZZZ\",\n    \"userReviewTime\": \"2024-06-06T03:59:17.189588500Z\",\n    \"adminReviewTime\": null,\n    \"reviewStatus\": \"PENDING\"\n}"
+				}
+			]
 		},
 		{
 			"name": "[operator] get user info",
@@ -275,9 +918,141 @@
 						"operator",
 						"users"
 					]
-				}
+				},
+				"description": "This api allow operator and admin to get user information\n\n- users with ROLE_REGISTERED are not allow to use this api\n    \n- ROLE_OPERATOR will see only users with ROLE_OPERATOR and ROLE_REGISTERED\n    \n- ROLE_ADMIN will see all users in the system.\n    \n- All search combination of fields are allow. Ex. if user put username, state, role in the input, the system will try to find all users with the specify username, state and role.\n    \n- If user leave all the field as blank or null, it will retrieve all user.\n    \n\n| **fields** | **type** | **required** | **info & rules** |\n| --- | --- | --- | --- |\n| username | String | N | 1\\. Cannot be more than 60 characters |\n| role | String | N | 1\\. Possible values are ROLE_REGISTERED, ROLE_OPERATOR, ROLE_ADMIN  <br>2\\. ROLE_OPERATOR is not allow to submit ROLE_ADMIN for this field |\n| name | String | N | 1\\. Cannot be more than 255 characters |\n| state | String | N | 1\\. Cannot be more than 255 characters |\n| zipCode | String | N | 1\\. allow only 4 digits long  <br>2\\. must be between 0001 - 9999 |\n| peanutAllergies | Boolean | N | 1\\. The default value will be false if you doesn't submit this field |\n| eggAllergies | Boolean | N | 1\\. The default value will be false if you doesn't submit this field |\n| dairyAllergies | Boolean | N | 1\\. The default value will be false if you doesn't submit this field |"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "[operator] get user info",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "newuser1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "role",
+									"value": "ROLE_ADMIN",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "Malwar",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "state",
+									"value": "5",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "zipCode",
+									"value": "6666",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "peanutAllergies",
+									"value": "false",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "eggAllergies",
+									"value": "true",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "dairyAllergies",
+									"value": "false",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/operator/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"operator",
+								"users"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 06 Jun 2024 04:00:59 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"username\": \"bababoo\",\n        \"password\": \"$2a$10$tGKpvV.cs9GlcmChmkzHwepj03Qs2sPLWsULXAyhFjSvbwZV2joMq\",\n        \"role\": \"ROLE_ADMIN\",\n        \"name\": \"Tanitsak\",\n        \"state\": \"NSW\",\n        \"zipCode\": \"9999\",\n        \"peanutAllergies\": false,\n        \"eggAllergies\": false,\n        \"dairyAllergies\": true\n    },\n    {\n        \"id\": 2,\n        \"username\": \"operator\",\n        \"password\": \"$2a$12$dNv6zMoESTtouE1RSU6B1uebwxMH2ZfZnyTnWKs8TzgxOoJN4wbnm\",\n        \"role\": \"ROLE_OPERATOR\",\n        \"name\": \"Operator Duke\",\n        \"state\": \"NSW\",\n        \"zipCode\": \"2222\",\n        \"peanutAllergies\": false,\n        \"eggAllergies\": false,\n        \"dairyAllergies\": false\n    },\n    {\n        \"id\": 3,\n        \"username\": \"newuser1\",\n        \"password\": \"$2a$10$nT0O4hdTojAxSrvQqNR5yuksWrjbICGduNhn8eTurEpoB2DMSiuW2\",\n        \"role\": \"ROLE_REGISTERED\",\n        \"name\": \"Edwin\",\n        \"state\": \"6\",\n        \"zipCode\": \"7777\",\n        \"peanutAllergies\": false,\n        \"eggAllergies\": false,\n        \"dairyAllergies\": true\n    }\n]"
+				}
+			]
 		},
 		{
 			"name": "[operator] get review",
@@ -352,9 +1127,140 @@
 						"operator",
 						"review"
 					]
-				}
+				},
+				"description": "This api allow operator and admin to get users'reviews\n\n- All fields in this api are optional.\n    \n- users with ROLE_REGISTERED are not allow to use this api.\n    \n- All search combination of fields are allow. Ex. if user put resturantName, nameOfUser, reviewStatus in the input, the system will try to find all users with the specify restaurantName, nameOfUser and reviewStatus.\n    \n\n| **fields** | **type** | **required** | **info & rules** |\n| --- | --- | --- | --- |\n| restaurantName | String | N | 1\\. Cannot be more than 255 characters |\n| nameOfUser | String | N | 1\\. Cannot be more than 255 characters |\n| reviewStatus | String | N | 1\\. Possible values are ROLE_REGISTERED, ROLE_OPERATOR, ROLE_ADMIN |\n| restaurantZipCode | String | N | 1\\. Allow only 4 digits long  <br>2\\. must be between 0001 - 9999 |\n| userId | String | N | 1\\. Number only |\n| userState | String | N | 1\\. Cannot be more than 255 characters |\n| userZipCode | String | N | 1\\. Allow only 4 digits long  <br>2\\. must be between 0001 - 9999 |"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "[operator] get review",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "restaurantName",
+									"value": "MC DONALD",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "nameOfUser",
+									"value": "Edwin",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "reviewStatus",
+									"value": "DELETED",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "restaurantZipCode",
+									"value": "1010",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "userId",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "userState",
+									"value": "2",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "userZipCode",
+									"value": "3333",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/operator/review",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"operator",
+								"review"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 06 Jun 2024 04:08:14 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"searchResult\": [\n        {\n            \"id\": 1,\n            \"restaurantId\": 3,\n            \"userId\": 3,\n            \"nameOfUser\": \"Edwin\",\n            \"userState\": \"6\",\n            \"userZipCode\": \"7777\",\n            \"restaurantName\": \"KFC\",\n            \"restaurantZipCode\": \"1012\",\n            \"peanutScore\": 3,\n            \"eggScore\": 4,\n            \"dairyScore\": 5,\n            \"commentary\": \"ZZZZ\",\n            \"userReviewTime\": \"2024-06-06T03:59:17.189588500Z\",\n            \"adminReviewTime\": \"2024-06-06T04:01:28.323043800Z\",\n            \"adminReview\": \"APPROVED\"\n        },\n        {\n            \"id\": 2,\n            \"restaurantId\": 1,\n            \"userId\": 4,\n            \"nameOfUser\": \"Edwin\",\n            \"userState\": \"6\",\n            \"userZipCode\": \"7777\",\n            \"restaurantName\": \"NOM MA\",\n            \"restaurantZipCode\": \"1010\",\n            \"peanutScore\": 3,\n            \"eggScore\": 4,\n            \"dairyScore\": 5,\n            \"commentary\": \"So good\",\n            \"userReviewTime\": \"2024-06-06T04:02:28.761639200Z\",\n            \"adminReviewTime\": \"2024-06-06T04:06:09.110843600Z\",\n            \"adminReview\": \"REJECTED\"\n        },\n        {\n            \"id\": 3,\n            \"restaurantId\": 3,\n            \"userId\": 5,\n            \"nameOfUser\": \"Edwin\",\n            \"userState\": \"6\",\n            \"userZipCode\": \"7777\",\n            \"restaurantName\": \"KFC\",\n            \"restaurantZipCode\": \"1012\",\n            \"peanutScore\": 3,\n            \"eggScore\": 4,\n            \"dairyScore\": 5,\n            \"commentary\": \"ZZZZ\",\n            \"userReviewTime\": \"2024-06-06T04:07:42.003097400Z\",\n            \"adminReviewTime\": null,\n            \"adminReview\": \"PENDING\"\n        },\n        {\n            \"id\": 4,\n            \"restaurantId\": 3,\n            \"userId\": 6,\n            \"nameOfUser\": \"Edwin\",\n            \"userState\": \"6\",\n            \"userZipCode\": \"7777\",\n            \"restaurantName\": \"KFC\",\n            \"restaurantZipCode\": \"1012\",\n            \"peanutScore\": 3,\n            \"eggScore\": 4,\n            \"dairyScore\": 5,\n            \"commentary\": \"ZZZZ\",\n            \"userReviewTime\": \"2024-06-06T04:07:49.166680200Z\",\n            \"adminReviewTime\": null,\n            \"adminReview\": \"PENDING\"\n        }\n    ]\n}"
+				}
+			]
 		},
 		{
 			"name": "[admin] update review status",
@@ -380,9 +1286,183 @@
 						"admin",
 						"review"
 					]
-				}
+				},
+				"description": "This api can only be called by admin to update user status. Other than update review status, after admin update review status, the system will update restaurant overall score (RESTAURANTS table) including peanutScore, eggScore, dairyScore and overallScore. The system will take all approved reviews from the users who rate the restaurant and it will calculate the average score of that restaurant. Then update those score of that restaurant accordingly.\n\n| **fields** | **type** | **required** | **info & rules** |\n| --- | --- | --- | --- |\n| userId | String | Y | 1\\. Number only |\n| restaurantId | String | Y | 1\\. Number only |\n| reviewAccept | Boolean | Y | 1\\. When sending false, the specify user's review status will be updated to \"REJECTED\". On the 2. On the otherhand, if sending true, user's review status wil be updated to \"APPROVED\". |"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "approved",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"restaurantId\": \"3\",\r\n    \"userId\": \"3\",\r\n    \"reviewAccept\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/admin/review",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"review"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 06 Jun 2024 04:01:28 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"restaurantId\": 3,\n    \"userId\": 3,\n    \"peanutScore\": 3,\n    \"eggScore\": 4,\n    \"dairyScore\": 5,\n    \"commentary\": \"ZZZZ\",\n    \"userReviewTime\": \"2024-06-06T03:59:17.189588500Z\",\n    \"adminReviewTime\": \"2024-06-06T04:01:28.323043800Z\",\n    \"adminReview\": \"APPROVED\"\n}"
+				},
+				{
+					"name": "rejected",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"restaurantId\": \"3\",\r\n    \"userId\": \"5\",\r\n    \"reviewAccept\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/admin/review",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"review"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 06 Jun 2024 04:08:49 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 3,\n    \"restaurantId\": 3,\n    \"userId\": 5,\n    \"peanutScore\": 3,\n    \"eggScore\": 4,\n    \"dairyScore\": 5,\n    \"commentary\": \"ZZZZ\",\n    \"userReviewTime\": \"2024-06-06T04:07:42.003097400Z\",\n    \"adminReviewTime\": \"2024-06-06T04:08:49.275570400Z\",\n    \"adminReview\": \"REJECTED\"\n}"
+				}
+			]
 		},
 		{
 			"name": "[admin] create new restaurant",
@@ -411,9 +1491,97 @@
 						"admin",
 						"restaurant"
 					]
-				}
+				},
+				"description": "This api was created for admin to be able to create new restaurant to the system.\n\n| **fields** | **type** | **required** | **info & rules** |\n| --- | --- | --- | --- |\n| restaurantName | String | Y | 1\\. Cannot be more than 255 characters  <br>2\\. Cannot create restaurant with the same name as existing restaurant name in the system |\n| zipCode | String | Y | 1\\. Allow only 4 digits long  <br>2\\. must be between 0001 - 9999 |"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "[admin] create new restaurant",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"restaurantName\": \"Very good restaurant\",\r\n    \"zipCode\": \"2222\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/admin/restaurant",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"restaurant"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 06 Jun 2024 04:09:13 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 5,\n    \"name\": \"Very good restaurant\",\n    \"zipCode\": \"2222\",\n    \"peanutScore\": null,\n    \"eggScore\": null,\n    \"dairyScore\": null,\n    \"overallScore\": null\n}"
+				}
+			]
 		},
 		{
 			"name": "[admin] delete restaurant",
@@ -440,9 +1608,98 @@
 						"admin",
 						"restaurant"
 					]
-				}
+				},
+				"description": "Admin can use this api to delete the restaurant in the system.\n\nBefore the system delete restaurant, it will search for the related review of to-remove restaurant to remove them before removing restaurant. Meaning, restaurant will be removed after all related user's reviews for the specify restaurant was removed.\n\n| **fields** | **type** | **required** | **info & rules** |\n| --- | --- | --- | --- |\n| restaurantName | String | Y | 1\\. restaurantName must be existed in the system  <br>2\\. Cannot be more than 255 characters |"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "[admin] delete restaurant",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"restaurantName\": \"Very good restaurant\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/admin/restaurant",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"restaurant"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 06 Jun 2024 04:09:31 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"deletedRestaurantName\": \"Very good restaurant\",\n    \"deletedDiningReviews\": 0\n}"
+				}
+			]
 		},
 		{
 			"name": "[admin] delete user",
@@ -465,9 +1722,94 @@
 							"value": "3"
 						}
 					]
-				}
+				},
+				"description": "Admin can use this api to delete user.\n\n- ROLE_ADMIN can remove all user\n    \n- users cannot remove themselves. In case that users want to remove themselves, they must ask others who have authority to remove them from the system.\n    \n- After successfully delete user, the related review of that user will also be removed from the system. (Remove related review doesn't mean actual remove, it will update userId in DINING_REVIEWS table to null with the status \"DELETED\". This approach will keep review in the system even though the user has already been deleted.)\n    \n\n| **fields** | **type** | **required** | **info & rules** |\n| --- | --- | --- | --- |\n| id | String | Y | 1\\. Number only |"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "[admin] delete user",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/admin/user?id=5",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"user"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 06 Jun 2024 04:10:05 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"deletedUser\": {\n        \"id\": 5,\n        \"username\": \"newuser3\",\n        \"password\": \"$2a$10$0TEJrDyxEWVQlJbRsr9KWuprlyTdFslhRcXBAB2aBmasZNrG40XH.\",\n        \"role\": null,\n        \"name\": \"Edwin\",\n        \"state\": \"6\",\n        \"zipCode\": \"7777\",\n        \"peanutAllergies\": false,\n        \"eggAllergies\": false,\n        \"dairyAllergies\": true\n    },\n    \"deletedDiningReview\": [\n        {\n            \"id\": 3,\n            \"restaurantId\": 3,\n            \"userId\": null,\n            \"peanutScore\": 3,\n            \"eggScore\": 4,\n            \"dairyScore\": 5,\n            \"commentary\": \"ZZZZ\",\n            \"userReviewTime\": \"2024-06-06T04:07:42.003097400Z\",\n            \"adminReviewTime\": \"2024-06-06T04:08:49.275570400Z\",\n            \"adminReview\": \"DELETED\"\n        }\n    ]\n}"
+				}
+			]
 		}
 	]
 }
